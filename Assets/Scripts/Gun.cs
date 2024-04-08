@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Melee : Weapon
+public class Gun : Weapon
 {
     private void Start()
     {
         base.Start(); // needed so we still get the animator for the weapon
-        type = WeaponType.Melee;
+        type = WeaponType.Gun;
         ammo = -1; // means endless
         damage = 10;
 

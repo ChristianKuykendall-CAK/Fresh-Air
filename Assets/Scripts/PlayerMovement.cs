@@ -39,6 +39,17 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private AudioSource deathSound;
 
+    // WEAPONS v
+    private Weapon defaultWeapon;
+
+    private Weapon activeWeapon;
+
+    public List<Weapon> weapons = new List<Weapon>();
+
+    private int activeWeaponIndex = 0;
+
+    // WEAPONS ^
+
     void Use()
     {
         //nothing
@@ -88,7 +99,33 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             jump = true;
 
+        // to switch means == left alt or right click
+        if (Input.GetButtonDown("Fire2")) // alternates between weapons
+        {
+            if (activeWeaponIndex == weapons.Count - 1)
+            {
+                activeWeaponIndex = -1;
+                anim.SetBool("isShooting", true); // should be shooting idle animation
+            }else if(activeWeaponIndex == weapons.Count - 1)
+            {
+                anim.SetBool("isShooting", false);
+                activeWeaponIndex = -1;
+                anim.SetBool("isVining", true);
+            }
+            //activeWeaponIndex++;
+            activeWeapon = weapons[++activeWeaponIndex];
+        }
+        // to switch means == left alt or right click
+        //if (Input.GetKeyDown(KeyCode.R)) // alternates between weapons
+        //{
+        //    foreach (Weapon aWeapon in weapons)
+        //    {
+        //        if (aWeapon is Gun)
+        //            aWeapon.Reload();
+        //    }
+        //}
 
+        //-------------------------------------
         //anim.SetFloat("H", Mathf.Abs(h));
         if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && !isDead)
         {
@@ -98,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
             anim.SetBool("isShooting", false); // change
-
+        //-------------------------------------
     }
     //*************************************
 
@@ -107,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isDead)
         {
-            RaycastHit2D hitInfo = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, .1f);
+            RaycastHit2D hitInfo = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, .2f);
             Debug.DrawRay(groundCheck.transform.position, Vector2.down, Color.red, .2f);
 
             //horizontal movement
