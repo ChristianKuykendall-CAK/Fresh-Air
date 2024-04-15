@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public enum WeaponType { Melee, Gun, Vine }; // attacks
-
-    protected WeaponType type;
-
-    protected int ammo;
-    protected int damage;
-
+    
     public float H;
 
     protected float jumpForce = 7f;
@@ -66,6 +60,7 @@ public class PlayerMovement : MonoBehaviour
     //*************************************
     protected void Start()
     {
+        activeWeaponIndex = 0;
         rend = GetComponent<SpriteRenderer>();
         rbody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
@@ -99,31 +94,24 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
             jump = true;
 
-        // to switch means == left alt or right click
         if (Input.GetButtonDown("Fire2")) // alternates between weapons
         {
             if (activeWeaponIndex == weapons.Count - 1)
             {
                 activeWeaponIndex = -1;
-                anim.SetBool("isShooting", true); // should be shooting idle animation
-            }else if(activeWeaponIndex == weapons.Count - 1)
-            {
-                anim.SetBool("isShooting", false);
-                activeWeaponIndex = -1;
-                anim.SetBool("isVining", true);
             }
             //activeWeaponIndex++;
             activeWeapon = weapons[++activeWeaponIndex];
         }
-        // to switch means == left alt or right click
-        //if (Input.GetKeyDown(KeyCode.R)) // alternates between weapons
-        //{
-        //    foreach (Weapon aWeapon in weapons)
-        //    {
-        //        if (aWeapon is Gun)
-        //            aWeapon.Reload();
-        //    }
-        //}
+        
+        if (Input.GetKeyDown(KeyCode.R)) // alternates between weapons
+        {
+            foreach (Weapon aWeapon in weapons)
+            {
+                if (aWeapon is Gun)
+                    aWeapon.Reload();
+            }
+        }
 
         //-------------------------------------
         //anim.SetFloat("H", Mathf.Abs(h));

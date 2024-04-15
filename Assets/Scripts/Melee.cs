@@ -16,10 +16,6 @@ public class Melee : Weapon
         //    anim.Play(customIdleAnimation); // Play the custom idle animation specified in the inspector
         //}
 
-        //distance = 1;
-        //GameObject fire;
-        //Transform firePoint;
-        //Vector2 facingDirection = Vector2.right;
     }
 
     //public override void Use()
