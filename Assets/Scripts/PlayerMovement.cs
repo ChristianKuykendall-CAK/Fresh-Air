@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.SetBool("isShooting", true); // changes animation
             activeWeapon.Use(); // This shoots the projectile of the weapon the player is currently using
-            Debug.Log("Trying to use weapon");
+            //Debug.Log("Trying to use weapon");
         }
         else
             anim.SetBool("isShooting", false); // changes animation
@@ -105,6 +105,14 @@ public class PlayerMovement : MonoBehaviour
         // This switches the weapon the player is using
         if (Input.GetButtonDown("Fire2")) // alternates between weapons
         {
+            //Debug.Log(activeWeaponIndex);
+            if (activeWeaponIndex == 0)
+            {
+                anim.SetBool("GunIdle", true);
+            }
+            else
+                anim.SetBool("GunIdle", false);
+
             if (activeWeaponIndex == weapons.Count - 1)
             {
                 activeWeaponIndex = -1;

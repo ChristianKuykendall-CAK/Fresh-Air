@@ -31,7 +31,7 @@ public class UICanvas : MonoBehaviour
     void Update()
     {
         // Check for Tab key press
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetButtonDown("Fire2"))
         {
             currentSpriteIndex++; // Increments the current sprite index
 

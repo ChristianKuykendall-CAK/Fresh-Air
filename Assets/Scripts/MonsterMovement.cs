@@ -21,7 +21,7 @@ public class MonsterMovement : MonoBehaviour
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + new Vector3(0f, -.8f, 0f), Vector2.down, .2f);
             Debug.DrawRay(transform.position + new Vector3(0f, -.8f, 0f), Vector2.down, Color.red, .2f);
-            Debug.Log(hit.collider);
+            //Debug.Log(hit.collider);
 
             if (hit.collider == null)
                 direction = direction * -1;
