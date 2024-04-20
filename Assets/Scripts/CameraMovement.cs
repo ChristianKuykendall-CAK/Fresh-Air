@@ -1,15 +1,19 @@
+/* Christian Kuykendall
+ * Date:
+ * Purpose: This script is attached to the player gameobject. It is supposed to
+ * make the camera follow the player
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    //This should be the player
-    public GameObject cameraMovement;
-    private Transform cameraTransform;
-    // distance camera is from player
-    private Vector3 offset = new Vector3(0f, 0f, -6f);
+    public GameObject cameraMovement; // The gameobject is what the camera follows
+    private Transform cameraTransform; // Transform of the camera
+    private Vector3 offset = new Vector3(0f, 0f, -6f); // How far the camera is from the player
 
+    // Start is called before the first frame update
     private void Start()
     {
         cameraTransform = Camera.main.transform;
@@ -18,7 +22,7 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //This follows the players transform position plus whatever the distance the camera is set away from the player on the z-axis
-        cameraTransform.position = cameraMovement.transform.position + offset;
+        cameraTransform.position = cameraMovement.transform.position + offset; // This follows the players transform position plus whatever the distance
+                                                                               // the camera is set away from the player on the z-axis
     }
 }

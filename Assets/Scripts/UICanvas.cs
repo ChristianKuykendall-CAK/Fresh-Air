@@ -1,3 +1,9 @@
+/* Christian Kuykendall
+ * Date:
+ * Purpose: This script is attached to the canves. It is supposed to change
+ * the different values depending on the information it gets about the player
+ * states or the weapon.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,7 +11,7 @@ using UnityEngine.UI;
 
 public class UICanvas : MonoBehaviour
 {
-    public static UICanvas instance;
+    public static UICanvas instance; // Instance
 
     public Sprite[] sprites; // Array to hold different sprites
     private int currentSpriteIndex = 0; // Index of the current sprite
@@ -30,17 +36,14 @@ public class UICanvas : MonoBehaviour
         // Check for Tab key press
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            // Increment the current sprite index
-            currentSpriteIndex++;
+            currentSpriteIndex++; // Increments the current sprite index
 
-            // Wrap around if we reach the end of the array
+            // Go back to start of array
             if (currentSpriteIndex >= sprites.Length)
             {
                 currentSpriteIndex = 0;
             }
-
-            // Change the sprite
-            image.sprite = sprites[currentSpriteIndex];
+            image.sprite = sprites[currentSpriteIndex]; // Changes sprite
         }
     }
 }
