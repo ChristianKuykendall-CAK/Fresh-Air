@@ -12,8 +12,6 @@ public class PlayerMovement : MonoBehaviour
     protected float jumpGravityScale = 1f;
     protected float fallingGravityScale = 3f;
 
-    public GameObject fire;
-    public Transform firePoint;
 
     public Vector2 facingDirection = Vector2.right;
     [SerializeField]
@@ -23,8 +21,6 @@ public class PlayerMovement : MonoBehaviour
 
     private bool jump;
     private bool inAir = false;
-    private float fireDelay = 0.25f;
-    private float nextTimeToFire = 0;
     private bool isDead = false;
 
     //Components we are getting
@@ -72,8 +68,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         H = Input.GetAxis("Horizontal");
-        anim.SetFloat("H", H);
-        //transform.Translate(new Vector3(H, 0, 0) * speed * Time.deltaTime);
+        anim.SetFloat("H", Mathf.Abs(H));
         if (H < 0 && facingDirection == Vector2.right && !isDead)
         {
             FlipX();
@@ -90,9 +85,18 @@ public class PlayerMovement : MonoBehaviour
             theScale.x = theScale.x * -1;
             transform.localScale = theScale;
         }
-        anim.SetFloat("H", H);
+        anim.SetFloat("H", Mathf.Abs(H));
         if (Input.GetButtonDown("Jump"))
             jump = true;
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            anim.SetBool("isShooting", true); // change
+            activeWeapon.Use();
+            Debug.Log("Trying to use weapon");
+        }
+        else
+            anim.SetBool("isShooting", false); // change
 
         if (Input.GetButtonDown("Fire2")) // alternates between weapons
         {
@@ -113,17 +117,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        //-------------------------------------
-        //anim.SetFloat("H", Mathf.Abs(h));
-        if (Input.GetButton("Fire1") && Time.time > nextTimeToFire && !isDead)
-        {
-            Instantiate(fire, firePoint.position, facingDirection == Vector2.left ? Quaternion.Euler(0, 180, 0): firePoint.rotation);
-            nextTimeToFire = Time.time + fireDelay;
-            anim.SetBool("isShooting", true); // change
-        }
-        else
-            anim.SetBool("isShooting", false); // change
-        //-------------------------------------
+        
     }
     //*************************************
 

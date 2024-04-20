@@ -253,11 +253,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: 10
+  animCompWeapon: {fileID: 763685433}
+  parentTransform: {fileID: 1256757026}
   fire: {fileID: 6221935943731671890, guid: 9879eb4cf2e826d44a016e9c6afbd99b, type: 3}
   firePoint: {fileID: 1748029516}
   facingDirection: {x: 1, y: 0}
-  animCompWeapon: {fileID: 763685433}
-  parentTransform: {fileID: 1256757026}
 --- !u!1 &647241865 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6544561027871659513, guid: 5bf91c1d22b94024ab57b6adabfb3943, type: 3}
@@ -353,15 +353,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 696177228}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dea7e9a7f03339b4b9d792122f9af9d5, type: 3}
+  m_Script: {fileID: 11500000, guid: 08b64c2c5ac4fb84ca34b6ca2c2474af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 5
+  ammo: 0
+  animCompWeapon: {fileID: 763685433}
+  parentTransform: {fileID: 1256757026}
   fire: {fileID: 3095221828481782076, guid: 06c59ccd180100c49b741dd1d591454e, type: 3}
   firePoint: {fileID: 1748029516}
   facingDirection: {x: 1, y: 0}
-  animCompWeapon: {fileID: 763685433}
-  parentTransform: {fileID: 1256757026}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2265,11 +2265,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammo: -1
-  fire: {fileID: 8606881785945177222, guid: 06c59ccd180100c49b741dd1d591454e, type: 3}
-  firePoint: {fileID: 1748029516}
-  facingDirection: {x: 1, y: 0}
   animCompWeapon: {fileID: 763685433}
   parentTransform: {fileID: 1256757026}
+  fire: {fileID: 0}
+  firePoint: {fileID: 1748029516}
+  facingDirection: {x: 1, y: 0}
 --- !u!1 &1428622859
 GameObject:
   m_ObjectHideFlags: 0

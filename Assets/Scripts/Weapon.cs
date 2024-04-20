@@ -42,10 +42,6 @@ public class Weapon : MonoBehaviour
         }
         Debug.DrawRay(transform.position, Vector3.forward, Color.red, 2f); // will not show depth
     }
-    void Update()
-    {
-        
-    }
     public void Reload()
     {
         ammo = 10;
