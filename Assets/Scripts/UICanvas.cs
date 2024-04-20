@@ -15,14 +15,11 @@ public class UICanvas : MonoBehaviour
 
     public Sprite[] sprites; // Array to hold different sprites
     private int currentSpriteIndex = 0; // Index of the current sprite
-    private Image image; // Reference to the Image component
+    public Image image; // Reference to the Image component
 
     // Start is called before the first frame update
     void Start()
     {
-        // Get the Image component attached to the GameObject
-        image = GetComponent<Image>();
-
         // Set the initial sprite
         if (sprites.Length > 0)
         {
