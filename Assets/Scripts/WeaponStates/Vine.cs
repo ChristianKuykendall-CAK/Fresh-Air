@@ -27,8 +27,11 @@ public class Vine : Weapon
     public override void Use()
     {
         animCompWeapon.SetTrigger("isVining");
-        Instantiate(fire, firePoint.position, facingDirection == Vector2.left ? Quaternion.Euler(0, 180, 0) : firePoint.rotation); // creates projectile
-        nextTimeToFire = Time.time + fireDelay; // firing rate
-                                                //    CheckHit();
+        if (ammo > 0)
+        {
+            Instantiate(fire, firePoint.position, facingDirection == Vector2.left ? Quaternion.Euler(0, 180, 0) : firePoint.rotation); // creates projectile
+            nextTimeToFire = Time.time + fireDelay; // firing rate
+            ammo--;
+        }
     }
 }

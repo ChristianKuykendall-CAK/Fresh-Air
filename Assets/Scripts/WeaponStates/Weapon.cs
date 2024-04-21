@@ -26,24 +26,18 @@ public class Weapon : MonoBehaviour
         animCompWeapon = GameObject.FindGameObjectWithTag("weapons").GetComponent<Animator>();
     }
 
-    protected void CheckHit()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(parentTransform.position, parentTransform.TransformDirection(Vector3.forward), out hit, distance))
-        {
-            Debug.Log("Hit something!");
-            GameObject enemy = hit.collider.gameObject;
-
-            if (enemy.CompareTag("enemy"))
-            {
-                MonsterMovement enemy_controller = enemy.GetComponent<MonsterMovement>();
-                //enemy_controller.health -= damage;
-            }
-        }
-        Debug.DrawRay(transform.position, Vector3.forward, Color.red, 2f); // will not show depth
-    }
     public void Reload()
     {
-        ammo = 10;
+        switch(type)
+        {
+            case WeaponType.Gun:
+                ammo = 10;
+                break;
+            case WeaponType.Vine:
+                ammo = 5;
+                break;
+            case WeaponType.Melee:
+                break;
+        }
     }
 }

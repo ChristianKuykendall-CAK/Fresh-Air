@@ -130,6 +130,8 @@ public class PlayerMovement : MonoBehaviour
             {
                 if (aWeapon is Gun)
                     aWeapon.Reload();
+                else if (aWeapon is Vine)
+                    aWeapon.Reload();
             }
         }
 
