@@ -108,10 +108,13 @@ public class PlayerMovement : MonoBehaviour
             //Debug.Log(activeWeaponIndex);
             if (activeWeaponIndex == 0)
             {
-                anim.SetBool("GunIdle", true);
+                anim.SetBool("GunActive", true);
             }
-            else
-                anim.SetBool("GunIdle", false);
+            else if (activeWeaponIndex == 1)
+            {
+                anim.SetBool("GunActive", false);
+                //anim.SetBool("VineIdle", true);
+            }
 
             if (activeWeaponIndex == weapons.Count - 1)
             {

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5631415592328843521}
   - component: {fileID: 1953989794127532431}
-  - component: {fileID: -5156142203416236986}
-  - component: {fileID: -2815007061797798941}
+  - component: {fileID: -4014028380938874808}
+  - component: {fileID: 3061842289883303299}
   m_Layer: 0
   m_Name: prefabBullet
   m_TagString: Untagged
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-5156142203416236986
-BoxCollider2D:
+--- !u!58 &-4014028380938874808
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -100,19 +100,9 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
-    newSize: {x: 0.2, y: 0.2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 0.2}
-  m_EdgeRadius: 0
---- !u!114 &-2815007061797798941
+  m_Radius: 0.1
+--- !u!114 &3061842289883303299
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6221935943731671890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2db2be9678832c34884e62c84dc5c64c, type: 3}
+  m_Script: {fileID: 11500000, guid: 93c8c1f92da51f048b1b9762f9812059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
