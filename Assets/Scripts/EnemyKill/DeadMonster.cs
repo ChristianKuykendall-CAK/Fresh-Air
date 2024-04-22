@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DeadDangerHole : MonoBehaviour
+public class DeadMonster : MonoBehaviour
 {
     private Animator anim;
     private AudioSource deathSound;
-    private int Health = 100;
+    private int Health = 200;
     private int damage = 0;
 
     public PlayerMovement playerMovement;
@@ -20,37 +20,30 @@ public class DeadDangerHole : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (playerMovement.activeWeaponIndex == 0) // Vine
+        if (playerMovement.activeWeaponIndex == 0) // Punch
         {
-            damage = 30;
+            damage = 5;
         }
         else if (playerMovement.activeWeaponIndex == 1) // Gun
         {
             damage = 15;
         }
-        else if (playerMovement.activeWeaponIndex == 2) // Punch
+        else if (playerMovement.activeWeaponIndex == 2) // Vine
         {
-            damage = 5;
+            damage = 30;
         }
     }
 
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Fire"))
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Health = Health - damage;
-            //anim.SetBool("isDead", true);
-            //GetComponent<Patrol>().enabled = false;
-            //deathSound.Play();
-            if (Health < 0)
+            Debug.Log(Health);
+
+            if (Health <= 0)
             {
                 Invoke("Die", 1f);
             }
