@@ -12,7 +12,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
+    // Reference to the GameManager
+    private GameManager gameManager;
+
     public float H;                           // gets the horizontal movement of the player
     protected float jumpForce = 7f;           // force that player moves from ground
     public GameObject groundCheck;            // This is at the bottom of the player gameobject as a child -
@@ -40,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private Weapon defaultWeapon; // default weapon for player (punching)
     private Weapon activeWeapon;  // Sets the current weapon of the player
     public List<Weapon> weapons = new List<Weapon>(); // List of weapons
-    private int activeWeaponIndex = 0; // current weapon index
+    public int activeWeaponIndex = 0; // current weapon index
 
     // This is called to activate that the player is dead
     public bool isPlayerDead()
@@ -51,6 +53,9 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     protected void Start()
     {
+        // Find the GameManager instance in the scene
+        gameManager = FindObjectOfType<GameManager>();
+
         // Sets the weapon index
         activeWeaponIndex = 0;
 
@@ -95,12 +100,17 @@ public class PlayerMovement : MonoBehaviour
         // This shoots a projectile
         if (Input.GetButtonDown("Fire1"))
         {
-            anim.SetBool("isShooting", true); // changes animation
-            activeWeapon.Use(); // This shoots the projectile of the weapon the player is currently using
+            anim.SetTrigger("IsPunching");
+            //anim.SetBool("isShooting", true); // changes animation
+            if (activeWeapon != null)
+            {
+                activeWeapon.Use(); // This shoots the projectile of the weapon the player is currently using
+            }
             //Debug.Log("Trying to use weapon");
+            //Debug.Log(activeWeaponIndex);
         }
-        else
-            anim.SetBool("isShooting", false); // changes animation
+        //else
+        //    anim.SetBool("isShooting", false); // changes animation
 
         // This switches the weapon the player is using
         if (Input.GetButtonDown("Fire2")) // alternates between weapons
@@ -114,6 +124,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 anim.SetBool("GunActive", false);
                 //anim.SetBool("VineIdle", true);
+            }else if(activeWeaponIndex == 2)
+            {
+                //anim.SetBool("VineIdle", false);
             }
 
             if (activeWeaponIndex == weapons.Count - 1)
@@ -186,10 +199,15 @@ public class PlayerMovement : MonoBehaviour
         // Enemies
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            anim.SetBool("isDead", true);
-            //GetComponent<Patrol>().enabled = false;
-            deathSound.Play();
-            Invoke("Die", 1f); // after 1 secondit activate 'Die'
+            gameManager.health -= 10;
+            Debug.Log(gameManager.health);
+            CanvasManager.instance.UpdateHealth(gameManager.health.ToString());
+            if (gameManager.health <= 0)
+            {
+                anim.SetBool("isDead", true);
+                deathSound.Play();
+                Invoke("Die", 1f); // after 1 second activate 'Die'
+            }
         }
     }
    

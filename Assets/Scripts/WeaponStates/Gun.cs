@@ -26,7 +26,6 @@ public class Gun : Weapon
 
     public override void Use()
     {
-        animCompWeapon.SetTrigger("isShooting");
         if (ammo > 0) {
             Instantiate(fire, firePoint.position, facingDirection == Vector2.left ? Quaternion.Euler(0, 180, 0) : firePoint.rotation); // creates projectile
             nextTimeToFire = Time.time + fireDelay; // firing rate
