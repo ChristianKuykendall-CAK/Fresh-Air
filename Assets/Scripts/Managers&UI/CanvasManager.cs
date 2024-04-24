@@ -9,6 +9,8 @@ public class CanvasManager : MonoBehaviour
 
     public Text healthText;
 
+    public Text reloadText;
+
     void Start()
     {
         // Get the CanvasManager instance
@@ -17,6 +19,8 @@ public class CanvasManager : MonoBehaviour
         GameManager gameManager = GetComponent<GameManager>();
 
         UpdateHealth(gameManager.health.ToString());
+
+        UpdateReload(gameManager.reload.ToString());
     }
 
     void Update()
@@ -24,10 +28,19 @@ public class CanvasManager : MonoBehaviour
         GameManager gameManager = GetComponent<GameManager>();
 
         UpdateHealth(gameManager.health.ToString());
+
+        UpdateReload(gameManager.reload.ToString());
+       
     }
 
     public void UpdateHealth(string txthealth)
     {
         healthText.text = "Health: " + txthealth;
+    }
+
+    public void UpdateReload(string txtreload)
+    {
+        //Debug.Log(txtreload);
+        reloadText.text = "Boxes: " + txtreload;
     }
 }

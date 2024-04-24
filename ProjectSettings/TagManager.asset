@@ -8,6 +8,7 @@ TagManager:
   - weapons
   - Enemy
   - Projectile
+  - Refillbox
   layers:
   - Default
   - TransparentFX
@@ -44,4 +45,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 3477793057
+    locked: 0
+  - name: Enemies
+    uniqueID: 905611483
     locked: 0

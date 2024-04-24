@@ -139,16 +139,31 @@ public class PlayerMovement : MonoBehaviour
         // This reloads the weapon the player is currently using
         if (Input.GetKeyDown(KeyCode.R)) // alternates between weapons
         {
-            foreach (Weapon aWeapon in weapons)
+            if (gameManager.reload > 0)
             {
-                if (aWeapon is Gun)
-                    aWeapon.Reload();
-                else if (aWeapon is Vine)
-                    aWeapon.Reload();
+                foreach (Weapon aWeapon in weapons)
+                {
+                    if (aWeapon is Gun)
+                        aWeapon.Reload();
+                    else if (aWeapon is Vine)
+                        aWeapon.Reload();
+                }
+                gameManager.reload -= 1;
+            }
+            else
+            {
+                //sound byte
             }
         }
 
-        
+        // If player dies
+        if (gameManager.health <= 0)
+        {
+            anim.SetBool("isDead", true);
+            deathSound.Play();
+            Invoke("Die", 1f); // after 1 second activate 'Die'
+        }
+
     }
    
     // This method is FixedUpdate
@@ -202,12 +217,16 @@ public class PlayerMovement : MonoBehaviour
             gameManager.health -= 10;
             Debug.Log(gameManager.health);
             CanvasManager.instance.UpdateHealth(gameManager.health.ToString());
-            if (gameManager.health <= 0)
-            {
-                anim.SetBool("isDead", true);
-                deathSound.Play();
-                Invoke("Die", 1f); // after 1 second activate 'Die'
-            }
+            
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Refillbox"))
+        {
+            gameManager.reload += 1;
+            Debug.Log(gameManager.reload);
+            CanvasManager.instance.UpdateReload(gameManager.reload.ToString());
         }
     }
    
