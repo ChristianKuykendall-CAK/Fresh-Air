@@ -1,6 +1,6 @@
 /* Christian Kuykendall
  * Date:
- * Purpose: This script is attached to the canves. It is supposed to change
+ * Purpose: This script is attached to the canvas. It is supposed to change
  * the different values depending on the information it gets about the player
  * states or the weapon.
  */

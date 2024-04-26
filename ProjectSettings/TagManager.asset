@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Projectile
   - Refillbox
+  - Key
   layers:
   - Default
   - TransparentFX

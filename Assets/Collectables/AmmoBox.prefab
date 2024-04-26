@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6775459394783943759}
   - component: {fileID: 2480816199138554353}
   - component: {fileID: -5629191099212235568}
+  - component: {fileID: -5637068300383032109}
   m_Layer: 0
   m_Name: AmmoBox
   m_TagString: Refillbox
@@ -122,5 +123,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 60b4d10321f40104b881679b69bd9fa7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5637068300383032109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8083242622512419888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2a299a358d4654f843a5f40a9c7147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

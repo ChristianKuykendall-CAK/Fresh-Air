@@ -34,8 +34,8 @@ public class MonsterMovement : MonoBehaviour
 
             if (rayDirection)
             {
-                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-.5f, 0f, 0f), Vector2.left, .1f, ~mask);
-                Debug.DrawRay(transform.position + new Vector3(-.5f, 0f, 0f), Vector2.left, Color.red, .1f);
+                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, .1f, ~mask);
+                Debug.DrawRay(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, Color.red, .1f);
 
                 if (hit2.collider != null)
                 {
@@ -45,8 +45,8 @@ public class MonsterMovement : MonoBehaviour
             }
             else
             { 
-                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(.5f, 0f, 0f), Vector2.right, .1f, ~mask);
-                Debug.DrawRay(transform.position + new Vector3(.5f, 0f, 0f), Vector2.right, Color.red, .1f);
+                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, .1f, ~mask);
+                Debug.DrawRay(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, Color.red, .1f);
 
                 if (hit2.collider != null)
                 {

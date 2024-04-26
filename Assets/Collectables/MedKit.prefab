@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8449822292740282188}
   - component: {fileID: 3089063724110557130}
   - component: {fileID: 2587980826884303073}
+  - component: {fileID: -8782544200255389949}
   m_Layer: 0
   m_Name: MedKit
   m_TagString: Untagged
@@ -124,3 +125,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60b4d10321f40104b881679b69bd9fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-8782544200255389949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8119548206631551047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2a299a358d4654f843a5f40a9c7147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 1
+  amount: 1
+  movement: 1
