@@ -1,6 +1,6 @@
 /* Christian Kuykendall
  * Date: 4/26/2024
- * Purpose:
+ * Purpose: This script is attached to the monster so that the player can damage it
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -37,16 +37,15 @@ public class DeadMonster : MonoBehaviour
             damage = 30;
         }
     }
-
-    
-
+    // If it gets hit with a projeictle take damage
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Health = Health - damage;
             Debug.Log(Health);
-
+            
+            // If it runs out of health then die
             if (Health <= 0)
             {
                 Invoke("Die", 1f);

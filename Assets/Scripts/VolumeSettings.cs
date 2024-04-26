@@ -1,6 +1,9 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This script adjusts the music using the slider
+ * in the options menu
+ * I used the youtube video below for guidance
+ * https://www.youtube.com/watch?v=G-JUp8AMEx0
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -51,6 +54,3 @@ public class VolumeSettings : MonoBehaviour
     }
 
 }
-
-// I used the youtube video below for guidance
-// https://www.youtube.com/watch?v=G-JUp8AMEx0

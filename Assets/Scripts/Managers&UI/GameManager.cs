@@ -11,8 +11,11 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    [SerializeField]
     public int health = 100;
+    [SerializeField]
     public int reload = 3;
+    [SerializeField]
     public int medkit = 1;
 
     private void Awake()

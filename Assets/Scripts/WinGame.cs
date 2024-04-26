@@ -1,6 +1,6 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This changes to the win scene when the player wins
  */
 
 using System.Collections;

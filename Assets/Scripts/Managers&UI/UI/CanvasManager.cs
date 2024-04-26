@@ -11,8 +11,11 @@ using UnityEngine.UI;
 public class CanvasManager : MonoBehaviour
 {
     public static CanvasManager instance;
+    [SerializeField]
     public Text healthText;
+    [SerializeField]
     public Text reloadText;
+    [SerializeField]
     public Text medkitText;
 
     private void Awake()

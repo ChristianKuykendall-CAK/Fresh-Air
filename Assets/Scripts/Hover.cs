@@ -1,6 +1,7 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This script is attached to all collectable objects.
+ * It is used to make them move up and down slightly so they can stand out
  */
 using System.Collections;
 using System.Collections.Generic;

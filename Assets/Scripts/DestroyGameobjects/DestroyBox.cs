@@ -1,6 +1,6 @@
 /* Christian Kuykendall
  * Date: 4/26/2024
- * Purpose:
+ * Purpose: This script destroy any object the player touches
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -13,10 +13,12 @@ public class DestroyBox : MonoBehaviour
 
     private int key = 0;
 
+    // Destroys whatever object this script is attached to
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            // If the object is 'Key' then add 1 to key to unlock door
             if (gameObject.CompareTag("Key"))
             {
                 key++;

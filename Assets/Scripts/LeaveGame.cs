@@ -1,6 +1,6 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This quits the game
  */
 using System.Collections;
 using System.Collections.Generic;

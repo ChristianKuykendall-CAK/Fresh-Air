@@ -1,6 +1,7 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: When the player falls in a pit take 10 damage
+ * then teleport back to the surface
  */
 using System.Collections;
 using System.Collections.Generic;

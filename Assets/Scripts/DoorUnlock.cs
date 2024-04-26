@@ -1,6 +1,7 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This scripts unlocks the final door
+ * when all keys are found
  */
 using System.Collections;
 using System.Collections.Generic;

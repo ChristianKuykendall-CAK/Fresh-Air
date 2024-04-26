@@ -1,6 +1,6 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This script is attached to the danger hole so that the player can damage it
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -37,24 +37,14 @@ public class DeadDangerHole : MonoBehaviour
             damage = 30;
         }
     }
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Fire"))
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
-
+    // If it gets hit with a projeictle take damage
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Projectile"))
         {
             Health = Health - damage;
-            //anim.SetBool("isDead", true);
-            //GetComponent<Patrol>().enabled = false;
-            //deathSound.Play();
             Debug.Log(Health);
+            // If it runs out of health then die
             if (Health <= 0)
             {
                 Invoke("Die", 1f);
