@@ -13,6 +13,16 @@ public class CanvasManager : MonoBehaviour
 
     public Text medkitText;
 
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     void Start()
     {
         // Get the CanvasManager instance
@@ -45,10 +55,10 @@ public class CanvasManager : MonoBehaviour
 
     public void UpdateReload(string txtreload)
     {
-        reloadText.text = "Boxes: " + txtreload;
+        reloadText.text = txtreload;
     }
     public void UpdateMedkit(string txtmedkit)
     {
-        medkitText.text = "Medkits: " + txtmedkit;
+        medkitText.text = txtmedkit;
     }
 }

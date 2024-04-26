@@ -17,7 +17,16 @@ public class ButtonManager : MonoBehaviour
     [SerializeField]
     private Button backButton;
 
-    
+    private void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {

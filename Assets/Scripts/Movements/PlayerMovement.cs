@@ -9,6 +9,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -160,6 +161,7 @@ public class PlayerMovement : MonoBehaviour
             if (gameManager.medkit > 0)
             {
                 gameManager.medkit -= 1;
+                gameManager.UseMedkit();
             }
         }
 
@@ -167,10 +169,10 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.health <= 0)
         {
             anim.SetBool("isDead", true);
-            deathSound.Play();
+            //deathSound.Play();
+            isDead = true;
             Invoke("Die", 1f); // after 1 second activate 'Die'
         }
-
     }
    
     // This method is FixedUpdate
@@ -240,6 +242,6 @@ public class PlayerMovement : MonoBehaviour
     // This destroys the player gameobject
     private void Die()
     {
-        Destroy(gameObject);
+        SceneManager.LoadScene("Failed");
     }
 }
