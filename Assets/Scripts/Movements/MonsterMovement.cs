@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MonsterMovement : MonoBehaviour
 {
-    private bool rayDirection = true;
 
     private int direction = 3;
     private PlayerMovement playerScript;
@@ -13,6 +12,7 @@ public class MonsterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        FlipX();
         playerScript = GameObject.FindWithTag("Player").GetComponent<PlayerMovement>();
         InvokeRepeating("DeathCheck", 1f, 1f);
     }
@@ -29,46 +29,44 @@ public class MonsterMovement : MonoBehaviour
 
             //Debug.Log(hit.collider);
 
-            if (hit.collider == null)
+            if (hit.collider == null) {
                 direction = direction * -1;
+                FlipX();
+            }
 
-            if (rayDirection)
+
+            RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, .1f, ~mask);
+            Debug.DrawRay(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, Color.red, .1f);
+
+            if (hit2.collider != null)
             {
-                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, .1f, ~mask);
-                Debug.DrawRay(transform.position + new Vector3(-.5f, -.6f, 0f), Vector2.left, Color.red, .1f);
-
-                if (hit2.collider != null)
-                {
-                    flipRay();
-                    direction = direction * -1;
-                }
+                direction = direction * -1;
+                FlipX();
             }
-            else
-            { 
-                RaycastHit2D hit2 = Physics2D.Raycast(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, .1f, ~mask);
-                Debug.DrawRay(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, Color.red, .1f);
 
-                if (hit2.collider != null)
-                {
-                    flipRay();
-                    direction = direction * -1;
-                }
+            RaycastHit2D hit3 = Physics2D.Raycast(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, .1f, ~mask);
+            Debug.DrawRay(transform.position + new Vector3(.5f, -.6f, 0f), Vector2.right, Color.red, .1f);
+
+            if (hit3.collider != null)
+            {
+                direction = direction * -1;
+                FlipX();
             }
+
 
             transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x - 1 * direction, transform.position.y), Time.deltaTime);
         }
     }
 
-    void flipRay()
-    {
-        if(rayDirection)
-            rayDirection = false;
-        else
-            rayDirection = true;
-    }
-
     public void DeathCheck()
     {
         isPlayerDead = playerScript.isPlayerDead();
+    }
+
+    void FlipX()
+    {
+        Vector3 theScale = transform.localScale;
+        theScale.x = theScale.x * -1;
+        transform.localScale = theScale;
     }
 }
