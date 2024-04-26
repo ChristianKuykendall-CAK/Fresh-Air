@@ -155,6 +155,13 @@ public class PlayerMovement : MonoBehaviour
                 //sound byte
             }
         }
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (gameManager.medkit > 0)
+            {
+                gameManager.medkit -= 1;
+            }
+        }
 
         // If player dies
         if (gameManager.health <= 0)

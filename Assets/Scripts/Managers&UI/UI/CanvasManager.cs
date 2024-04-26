@@ -11,6 +11,8 @@ public class CanvasManager : MonoBehaviour
 
     public Text reloadText;
 
+    public Text medkitText;
+
     void Start()
     {
         // Get the CanvasManager instance
@@ -21,6 +23,8 @@ public class CanvasManager : MonoBehaviour
         UpdateHealth(gameManager.health.ToString());
 
         UpdateReload(gameManager.reload.ToString());
+
+        UpdateMedkit(gameManager.medkit.ToString());
     }
 
     void Update()
@@ -30,7 +34,8 @@ public class CanvasManager : MonoBehaviour
         UpdateHealth(gameManager.health.ToString());
 
         UpdateReload(gameManager.reload.ToString());
-       
+
+        UpdateMedkit(gameManager.medkit.ToString());
     }
 
     public void UpdateHealth(string txthealth)
@@ -40,7 +45,10 @@ public class CanvasManager : MonoBehaviour
 
     public void UpdateReload(string txtreload)
     {
-        //Debug.Log(txtreload);
         reloadText.text = "Boxes: " + txtreload;
+    }
+    public void UpdateMedkit(string txtmedkit)
+    {
+        medkitText.text = "Medkits: " + txtmedkit;
     }
 }
