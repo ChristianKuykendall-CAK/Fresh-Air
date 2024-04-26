@@ -1,5 +1,5 @@
 /* Christian Kuykendall
- * Date:
+ * Date: 4/26/2024
  * Purpose: This script is attached to the player gameobject. It is supposed to
  * move the player as well as activate animation upon certain actions. It also
  * holds data about the weapons used in a list so that the player can swap weapons.
@@ -17,19 +17,19 @@ public class PlayerMovement : MonoBehaviour
     private GameManager gameManager;
 
     public float H;                           // gets the horizontal movement of the player
-    protected float jumpForce = 7f;           // force that player moves from ground
-    public GameObject groundCheck;            // This is at the bottom of the player gameobject as a child -
-                                              // It detects if the player is on the ground on not through raycasting
+    protected float jumpForce = 7f;
+    public GameObject groundCheck;            // Raycast down to check for ground
+
     protected float jumpGravityScale = 1f;    // Gravity
-    protected float fallingGravityScale = 3f; // falling Gravity
+    protected float fallingGravityScale = 3f;
 
     public Vector2 facingDirection = Vector2.right; // Direction the player is facing. Default is right
     [SerializeField]         // Serializes
-    private float speed;     // Player speed
-    [SerializeField]         // Serializes
-    private float moveForce; // Force the player pushes on other object
+    private float speed;
+    [SerializeField]
+    private float moveForce;
 
-    private bool jump;           // Used to make the player jump
+    private bool jump;
     private bool inAir = false;  // Checks to see if player is in air
     private bool isDead = false; // Checks to see if hte player is dead
 
@@ -40,8 +40,8 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource deathSound;
 
     // Weapon
-    private Weapon defaultWeapon; // default weapon for player (punching)
-    private Weapon activeWeapon;  // Sets the current weapon of the player
+    private Weapon defaultWeapon; // default weapon
+    private Weapon activeWeapon;  // Sets the current weapon
     public List<Weapon> weapons = new List<Weapon>(); // List of weapons
     public int activeWeaponIndex = 0; // current weapon index
 
@@ -71,10 +71,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         
-        H = Input.GetAxis("Horizontal");  // Gets the horizontal input the player puts it as a float -
-                                          // Used for animation
+        H = Input.GetAxis("Horizontal");  // Gets the horizontal input the player
         anim.SetFloat("H", Mathf.Abs(H)); // Used for animation of player running
-        // This checks to see which direction the player is facing so it sets gameobject to face the correct direction
+
+        // This checks to see which direction the player is facing
+        // so it sets gameobject to face the correct direction
         if (H < 0 && facingDirection == Vector2.right && !isDead)
         {
             FlipX();
@@ -94,42 +95,43 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetFloat("H", Mathf.Abs(H));
-        // This sets the jump value to true if the player presses the jump button (spacebar)
+
+        // Sets jump to true
         if (Input.GetButtonDown("Jump"))
             jump = true;
 
         // This shoots a projectile
         if (Input.GetButtonDown("Fire1"))
         {
+            // Sets triggers for weapons
             anim.SetTrigger("IsPunching");
             anim.SetTrigger("IsVining");
 
             if (activeWeapon != null)
             {
-                activeWeapon.Use(); // This shoots the projectile of the weapon the player is currently using
+                // Shoots projectile of current weapon
+                activeWeapon.Use();
             }
-            //Debug.Log("Trying to use weapon");
-            //Debug.Log(activeWeaponIndex);
         }
 
         // This switches the weapon the player is using
-        if (Input.GetButtonDown("Fire2")) // alternates between weapons
+        if (Input.GetButtonDown("Fire2"))
         {
-            //Debug.Log(activeWeaponIndex);
-            if (activeWeaponIndex == 0)
+            if (activeWeaponIndex == 0) // Gun
             {
                 anim.SetBool("GunActive", true);
             }
-            else if (activeWeaponIndex == 1)
+            else if (activeWeaponIndex == 1) // Vine
             {
                 anim.SetBool("GunActive", false);
                 anim.SetBool("VineActive", true);
             }
-            else if(activeWeaponIndex == 2)
+            else if(activeWeaponIndex == 2) // Fist
             {
                 anim.SetBool("VineActive", false);
             }
 
+            // Iterates through weapons
             if (activeWeaponIndex == weapons.Count - 1)
             {
                 activeWeaponIndex = -1;
@@ -137,8 +139,8 @@ public class PlayerMovement : MonoBehaviour
             activeWeapon = weapons[++activeWeaponIndex];
         }
         
-        // This reloads the weapon the player is currently using
-        if (Input.GetKeyDown(KeyCode.R)) // alternates between weapons
+        // Reloads weapons, only if there are ammo boxes
+        if (Input.GetKeyDown(KeyCode.R))
         {
             if (gameManager.reload > 0)
             {
@@ -151,11 +153,8 @@ public class PlayerMovement : MonoBehaviour
                 }
                 gameManager.reload -= 1;
             }
-            else
-            {
-                //sound byte
-            }
         }
+        // Heals player if there are Medkits
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (gameManager.medkit > 0)
@@ -169,19 +168,17 @@ public class PlayerMovement : MonoBehaviour
         if (gameManager.health <= 0)
         {
             anim.SetBool("isDead", true);
-            //deathSound.Play();
             isDead = true;
             Invoke("Die", 1f); // after 1 second activate 'Die'
         }
     }
    
-    // This method is FixedUpdate
     private void FixedUpdate()
     {
         // Checks if player is not dead
         if (!isDead)
         {
-            // This creates a raycast form groundCheck to check if the player is on the ground
+            // This creates a raycast from groundCheck to check if the player is on the ground
             RaycastHit2D hitInfo = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, .2f);
             Debug.DrawRay(groundCheck.transform.position, Vector2.down, Color.red, .2f);
 
@@ -191,7 +188,6 @@ public class PlayerMovement : MonoBehaviour
             // If the player is jumping
             if (jump)
             {
-                Debug.Log(hitInfo.collider.name);
                 if (hitInfo.collider != null)
                 {
                     rbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -211,7 +207,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
     
-    // When the player collides with something this method activates
+    // Detects collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // Ground tiles
@@ -229,6 +225,7 @@ public class PlayerMovement : MonoBehaviour
             
         }
     }
+    // Detects triggers
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Refillbox"))
@@ -239,7 +236,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
    
-    // This destroys the player gameobject
+    // This goes to the lose screen when the player loses
     private void Die()
     {
         SceneManager.LoadScene("Failed");

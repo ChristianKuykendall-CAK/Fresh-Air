@@ -1,3 +1,8 @@
+/* Christian Kuykendall
+ * Date: 4/26/2024
+ * Purpose: Gamemager Script
+ * Holds, health, medkits, and reloads.
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +33,7 @@ public class GameManager : MonoBehaviour
         medkit = 1;
     }
 
+    // If medkits is used the set player health to 100
     public void UseMedkit()
     {
         health = 100;

@@ -20,11 +20,12 @@ public class ButtonManager : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         else
             Destroy(gameObject);
-
-        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
@@ -39,11 +40,19 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("StartGame() function called");
         SceneManager.LoadScene("Level_1");
+        startButton.gameObject.SetActive(false);
+        helpButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(false);
     }
     void helpMenu()
     {
         Debug.Log("helpMenu() function called");
         SceneManager.LoadScene("HelpMenu");
+        startButton.gameObject.SetActive(false);
+        helpButton.gameObject.SetActive(false);
+        quitButton.gameObject.SetActive(false);
+        backButton.gameObject.SetActive(true);
     }
     void quitGame()
     {
@@ -54,5 +63,10 @@ public class ButtonManager : MonoBehaviour
     {
         Debug.Log("backMain() function called");
         SceneManager.LoadScene("MainMenu");
+        startButton.gameObject.SetActive(true);
+        helpButton.gameObject.SetActive(true);
+        quitButton.gameObject.SetActive(true);
+        backButton.gameObject.SetActive(false);
     }
+
 }

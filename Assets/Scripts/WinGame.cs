@@ -1,7 +1,11 @@
+/* Christian Kuykendall
+ * Date:
+ * Purpose:
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SceneManagement;
 using UnityEngine.SceneManagement;
 
 public class WinGame : MonoBehaviour

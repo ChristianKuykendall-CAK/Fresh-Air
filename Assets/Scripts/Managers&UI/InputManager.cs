@@ -1,3 +1,7 @@
+/* Christian Kuykendall
+ * Date: 4/26/2024
+ * Purpose: This script allows the player to display the options menu
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,9 +10,7 @@ using UnityEngine.UI;
 public class InputManager : MonoBehaviour
 {
     public static InputManager instance;
-
     public Canvas settingsCanvas;
-
     private bool displayed = false;
 
 
@@ -24,6 +26,8 @@ public class InputManager : MonoBehaviour
 
     void Update()
     {
+        // Once player presses 'P' Turn on unless already on
+        // then turn off
         if (Input.GetKeyDown(KeyCode.P) && !displayed)
         {
             DisplayOptions();
@@ -36,14 +40,13 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    //This displays the options menu makes sure the player is not still able to
-    //type in the input field when the options menu is displayed
+    // Displays the options menu
     void DisplayOptions()
     {
         settingsCanvas.gameObject.SetActive(true);
     }
 
-    //This hides the options menu as well as turn the input field back on
+    // Hides the options menu
     void HideOptions()
     {
         settingsCanvas.gameObject.SetActive(false);

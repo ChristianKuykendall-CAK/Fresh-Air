@@ -1,3 +1,9 @@
+/* Christian Kuykendall
+ * Date: 4/26/2024
+ * Purpose: This script toggles the 2D collider on and off of the creature
+ * that sprouts from the ground
+ * Attached to the DangerHole prefab
+ */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +21,7 @@ public class DangerHoleAttack : MonoBehaviour
         StartCoroutine(ToggleCollider());
     }
 
+    // Turns the collider on and off for the enemy
     private IEnumerator ToggleCollider()
     {
         while (true)
@@ -22,13 +29,13 @@ public class DangerHoleAttack : MonoBehaviour
             // Deactivate the collider
             boxCollider.enabled = true;
 
-            // Wait for a certain amount of time
+            // Wait .7 seconds
             yield return new WaitForSeconds(.7f);
 
             // Activate the collider
             boxCollider.enabled = false;
 
-            // Wait for another amount of time
+            // Wait .7 seconds
             yield return new WaitForSeconds(.7f);
         }
     }

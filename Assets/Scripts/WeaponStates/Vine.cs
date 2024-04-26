@@ -1,5 +1,5 @@
 /* Christian Kuykendall
- * Date:
+ * Date: 4/26/2024
  * Purpose: This script is a child of the Weapon class. It is used
  * to make the player shoot a vine once activated
  */
@@ -26,7 +26,6 @@ public class Vine : Weapon
 
     public override void Use()
     {
-        //animCompWeapon.SetTrigger("isVining");
         if (ammo > 0)
         {
             Instantiate(fire, firePoint.position, facingDirection == Vector2.left ? Quaternion.Euler(0, 180, 0) : firePoint.rotation); // creates projectile

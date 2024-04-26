@@ -1,5 +1,5 @@
 /* Christian Kuykendall
- * Date:
+ * Date: 4/26/2024
  * Purpose: This script is a child of the Weapon class. It is used
  * to make the player shoot a bullet once activated
  */

@@ -1,5 +1,5 @@
 /* Christian Kuykendall
- * Date:
+ * Date: 4/26/2024
  * Purpose: This script is attached to the canvas. It is supposed to change
  * the different values depending on the information it gets about the player
  * states or the weapon.
@@ -11,13 +11,12 @@ using UnityEngine.UI;
 
 public class UICanvas : MonoBehaviour
 {
-    public static UICanvas instance; // Instance
+    public static UICanvas instance;
 
-    public Sprite[] sprites; // Array to hold different sprites
-    private int currentSpriteIndex = 0; // Index of the current sprite
-    public Image image; // Reference to the Image component
+    public Sprite[] sprites;
+    private int currentSpriteIndex = 0;
+    public Image image;
 
-    // Start is called before the first frame update
     void Start()
     {
         // Set the initial sprite
@@ -27,20 +26,18 @@ public class UICanvas : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Check for Tab key press
+        // switch weapon images on canvas
         if (Input.GetButtonDown("Fire2"))
         {
-            currentSpriteIndex++; // Increments the current sprite index
+            currentSpriteIndex++;
 
-            // Go back to start of array
             if (currentSpriteIndex >= sprites.Length)
             {
                 currentSpriteIndex = 0;
             }
-            image.sprite = sprites[currentSpriteIndex]; // Changes sprite
+            image.sprite = sprites[currentSpriteIndex];
         }
     }
 }
