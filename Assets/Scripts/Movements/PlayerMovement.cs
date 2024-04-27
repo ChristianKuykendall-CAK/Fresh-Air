@@ -234,6 +234,12 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log(gameManager.reload);
             CanvasManager.instance.UpdateReload(gameManager.reload.ToString());
         }
+        if (collision.gameObject.CompareTag("Medkit"))
+        {
+            gameManager.medkit += 1;
+            Debug.Log(gameManager.medkit);
+            CanvasManager.instance.UpdateReload(gameManager.medkit.ToString());
+        }
     }
    
     // This goes to the lose screen when the player loses

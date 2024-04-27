@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8782544200255389949}
   m_Layer: 0
   m_Name: MedKit
-  m_TagString: Untagged
+  m_TagString: Medkit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,6 +137,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2a299a358d4654f843a5f40a9c7147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 1
-  amount: 1
-  movement: 1

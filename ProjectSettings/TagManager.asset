@@ -10,6 +10,7 @@ TagManager:
   - Projectile
   - Refillbox
   - Key
+  - Medkit
   layers:
   - Default
   - TransparentFX
