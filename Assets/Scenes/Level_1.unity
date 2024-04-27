@@ -474,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.509
+      value: -7.3
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1235,7 +1235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37475318520295072, guid: bfb7599a6fce7f443940e88dd93a66a6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.34
+      value: 65.64
       objectReference: {fileID: 0}
     - target: {fileID: 37475318520295072, guid: bfb7599a6fce7f443940e88dd93a66a6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4498,7 +4498,10 @@ MonoBehaviour:
     Left Click or ctrl
     to Shoot
 
-    Right Click to change weapons'
+    Right Click to change weapons
+
+    Press P to display controls
+    and adjust volume'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4629,7 +4632,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -7.1082945, y: -2.2146852}
+  m_AnchoredPosition: {x: -7.1082945, y: -1.59}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &557060942
@@ -8906,7 +8909,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.56
+      value: -7.33
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9372,7 +9375,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.58
+      value: -7.45
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.z
@@ -35731,7 +35734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -11.61
+      value: -11.46
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -68764,7 +68767,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.62
+      value: -0.37
       objectReference: {fileID: 0}
     - target: {fileID: 3558861695644545355, guid: c9977f6d5a90d374db84c40c1093ea4a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -78541,7 +78544,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.53
+      value: -4.38
       objectReference: {fileID: 0}
     - target: {fileID: 7973444969826282157, guid: 94320ccd1317da0418785ba0c9474812, type: 3}
       propertyPath: m_LocalPosition.z

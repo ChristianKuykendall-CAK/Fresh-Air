@@ -1,5 +1,5 @@
 /* Christian Kuykendall
- * Date:
+ * Date: 4/26/2024
  * Purpose: This script is attached to the player gameobject. It is supposed to
  * make the camera follow the player
  */

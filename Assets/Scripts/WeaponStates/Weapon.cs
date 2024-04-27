@@ -1,6 +1,7 @@
 /* Christian Kuykendall
- * Date:
- * Purpose:
+ * Date: 4/26/2024
+ * Purpose: This script holds all of the weapons the player uses and
+ * iterates through each weapon.
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public enum WeaponType { Melee, Gun, Vine }; // attacks
+    public enum WeaponType { Melee, Gun, Vine }; // different weapons
 
     protected WeaponType type;
 
@@ -30,6 +31,7 @@ public class Weapon : MonoBehaviour
         animCompWeapon = GameObject.FindGameObjectWithTag("weapons").GetComponent<Animator>();
     }
 
+    // This reloads each weapon
     public void Reload()
     {
         switch(type)
